@@ -24,9 +24,10 @@ function verifyJWT(req, res, next) {
         }
         console.log('decoded', decoded);
         req.decoded = decoded;
+        next();
     })
     // console.log('inside verifyJWT', authHeader);  
-    next();
+
 }
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.e5psqp5.mongodb.net/?retryWrites=true&w=majority`;
